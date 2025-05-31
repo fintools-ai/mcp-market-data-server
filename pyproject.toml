@@ -1,0 +1,18 @@
+[project]
+name = "mcp-market-data-server"
+version = "1.0.0"
+description = "MCP Server providing structured market insights for LLM trading agents"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=0.1.0",
+    "pandas>=2.0.0",
+    "numpy>=1.23.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+fininsight-mcp = "src.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
