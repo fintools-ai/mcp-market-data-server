@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 from typing import Optional, Dict, Any, List, Union
 
-from src.server.config import TWELVE_DATA_BASE_URL, TWELVE_DATA_API_KEY, TWELVE_DATA_OUTPUT_SIZE
+from src.services.config import TWELVE_DATA_BASE_URL, TWELVE_DATA_API_KEY, TWELVE_DATA_OUTPUT_SIZE
 
 
 def _make_twelvedata_request(

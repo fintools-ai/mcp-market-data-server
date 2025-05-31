@@ -11,10 +11,6 @@ except Exception as e:
     TWELVE_DATA_API_KEY: str = ""
     print(f"Warning: Failed to read API key: {e}")
 
-# === Server Settings ===
-FININSIGHT_HOST: str = "0.0.0.0"
-FININSIGHT_PORT: int = 8100
-
 # === Twelve Data API Settings ===
 TWELVE_DATA_BASE_URL: str = "https://api.twelvedata.com"
 TWELVE_DATA_OUTPUT_SIZE: int = 5000

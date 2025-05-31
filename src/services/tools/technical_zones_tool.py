@@ -1,15 +1,15 @@
 from typing import Dict, Any, List
 from datetime import datetime, timedelta
 
-from src.server.config import (
+from src.services.config import (
     VP_1M_BARS_INTERVAL, VP_1M_LOOKBACK_HOURS,
     VP_5M_BARS_INTERVAL, VP_5M_LOOKBACK_DAYS,
     VP_1D_BARS_INTERVAL, VP_1D_LOOKBACK_MONTHS,
     TA_1M_INDICATOR_INTERVAL, TA_5M_INDICATOR_INTERVAL, TA_1D_INDICATOR_INTERVAL,
     TWELVE_DATA_OUTPUT_SIZE, PRICE_BANDING_WIDTH
 )
-from src.server.data import twelvedata_fetcher
-from src.server.compute import technical_analysis
+from src.services.data import twelvedata_fetcher
+from src.services.compute import technical_analysis
 
 
 async def financial_technical_zones(symbol: str) -> Dict[str, Any]:

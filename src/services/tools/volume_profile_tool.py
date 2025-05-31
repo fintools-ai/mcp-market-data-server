@@ -2,14 +2,14 @@ from typing import Dict, Any
 from datetime import datetime, timedelta
 import pandas as pd
 
-from src.server.config import (
+from src.services.config import (
     VP_1M_BARS_INTERVAL, VP_1M_LOOKBACK_HOURS, 
     VP_5M_BARS_INTERVAL, VP_5M_LOOKBACK_DAYS, 
     VP_1D_BARS_INTERVAL, VP_1D_LOOKBACK_MONTHS,
     TWELVE_DATA_OUTPUT_SIZE
 )
-from src.server.data import twelvedata_fetcher
-from src.server.compute import technical_analysis
+from src.services.data import twelvedata_fetcher
+from src.services.compute import technical_analysis
 
 
 async def financial_volume_profile(symbol: str) -> Dict[str, Any]:

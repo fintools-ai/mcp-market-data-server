@@ -9,10 +9,14 @@ dependencies = [
     "numpy>=1.23.0",
     "requests>=2.31.0",
 ]
-
+authors = [
+    {name = "Sayantan", email = "sayantanbhow@gmail.com"}
+]
 [project.scripts]
-fininsight-mcp = "src.main:main"
+mcp-market-data-server = "run_server:main"
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"

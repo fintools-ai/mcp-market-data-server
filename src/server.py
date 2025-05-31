@@ -4,9 +4,9 @@ import logging
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
 
 # Import tool implementations
-from src.server.tools.volume_profile_tool import financial_volume_profile
-from src.server.tools.technical_analysis_tool import financial_technical_analysis
-from src.server.tools.technical_zones_tool import financial_technical_zones
+from src.services.tools.volume_profile_tool import financial_volume_profile
+from src.services.tools.technical_analysis_tool import financial_technical_analysis
+from src.services.tools.technical_zones_tool import financial_technical_zones
 
 logging.basicConfig(
     level=getattr(logging, "INFO"),
@@ -50,7 +50,7 @@ async def financial_technical_zones_tool(symbol: str):
 
 
 def main():
-    mcp.run(transport="stdio")
+    mcp.run()
 
 if __name__ == "__main__":
     try:

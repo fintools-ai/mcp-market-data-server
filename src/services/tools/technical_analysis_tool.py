@@ -2,11 +2,11 @@ from typing import Dict, Any
 from datetime import datetime, timedelta
 import concurrent.futures
 
-from src.server.config import (
+from src.services.config import (
     TA_1M_INDICATOR_INTERVAL, TA_5M_INDICATOR_INTERVAL, TA_1D_INDICATOR_INTERVAL
 )
-from src.server.data import twelvedata_fetcher
-from src.server.compute import technical_analysis
+from src.services.data import twelvedata_fetcher
+from src.services.compute import technical_analysis
 
 
 async def financial_technical_analysis(symbol: str) -> Dict[str, Any]:
