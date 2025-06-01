@@ -1,16 +1,14 @@
 # MCP Market Data Server
 
-<div align="center">
+<div>
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![FastMCP](https://img.shields.io/badge/FastMCP-Compatible-green.svg)](https://github.com/jlowin/fastmcp)
-[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Twelve Data](https://img.shields.io/badge/API-Twelve%20Data-blue.svg)](https://twelvedata.com/)
 
 *A powerful FastMCP server providing comprehensive financial market data analysis tools for LLM agents and trading applications.*
 
-[🚀 Quick Start](#quick-start) • [📊 Features](#features) • [🛠️ Installation](#installation) • [📖 Documentation](#documentation) • [🤝 Contributing](#contributing)
 
 </div>
 
