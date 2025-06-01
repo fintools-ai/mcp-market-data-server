@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
 from src.services.tools.volume_profile_tool import financial_volume_profile
 from src.services.tools.technical_analysis_tool import financial_technical_analysis
 from src.services.tools.technical_zones_tool import financial_technical_zones
+from src.services.tools.orb_tool import financial_orb_analysis
 
 logging.basicConfig(
     level=getattr(logging, "INFO"),
@@ -47,6 +48,15 @@ async def financial_technical_zones_tool(symbol: str):
     Useful for identifying precise entry, exit, and stop-loss levels.
     """
     return await financial_technical_zones(symbol)
+
+@mcp.tool()
+async def analyze_open_interest(symbol: str):
+    """
+    Analyzes Opening Range Breakout (ORB) levels for multiple timeframes (5, 15, 30 minutes).
+    Provides ORB high/low, breakout confirmation, volume analysis, and extension targets.
+    Essential for 0DTE and intraday trading strategies.
+    """
+    return await financial_orb_analysis(symbol)
 
 
 def main():
