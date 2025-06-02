@@ -50,7 +50,7 @@ async def financial_technical_zones_tool(symbol: str):
     return await financial_technical_zones(symbol)
 
 @mcp.tool()
-async def analyze_open_interest(symbol: str):
+async def financial_orb_analysis(symbol: str):
     """
     Analyzes Opening Range Breakout (ORB) levels for multiple timeframes (5, 15, 30 minutes).
     Provides ORB high/low, breakout confirmation, volume analysis, and extension targets.
