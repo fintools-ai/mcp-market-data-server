@@ -4,8 +4,10 @@ Test script for ORB (Opening Range Breakout) tool
 """
 
 import asyncio
-import json
-from datetime import datetime
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from src.services.tools.orb_tool import financial_orb_analysis
 
 async def test_orb():

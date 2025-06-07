@@ -1,6 +1,7 @@
 from fastmcp import FastMCP
 import os, sys
 import logging
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
 
 # Import tool implementations
@@ -8,6 +9,7 @@ from src.services.tools.volume_profile_tool import financial_volume_profile
 from src.services.tools.technical_analysis_tool import financial_technical_analysis
 from src.services.tools.technical_zones_tool import financial_technical_zones
 from src.services.tools.orb_tool import financial_orb_analysis
+from src.services.tools.fvg_tool import financial_fvg_analysis
 
 logging.basicConfig(
     level=getattr(logging, "INFO"),
@@ -57,6 +59,16 @@ async def financial_orb_analysis_tool(symbol: str):
     Essential for 0DTE and intraday trading strategies.
     """
     return await financial_orb_analysis(symbol)
+
+@mcp.tool()
+async def financial_fvg_analysis_tool(symbol: str):
+    """
+    Analyzes Fair Value Gaps (FVGs) across multiple timeframes (1m, 5m, 15m).
+    Identifies price imbalances from 3-candle patterns with no overlap.
+    Provides gap levels, fill status, volume analysis, and price interaction history.
+    Essential for identifying high-probability support/resistance zones and mean reversion trades.
+    """
+    return await financial_fvg_analysis(symbol)
 
 
 def main():

@@ -22,6 +22,7 @@ The **MCP Market Data Server** is a production-ready financial analysis server i
 - **📈 Technical Analysis** - Access 15+ standard indicators with multi-timeframe analysis
 - **🎯 Technical Zones** - Calculate high-probability price zones for precise entry/exit decisions
 - **📊 ORB Analysis** - Opening Range Breakout levels with multi-period analysis for intraday/0DTE trading
+- **🔍 Fair Value Gap Analysis** - Detect price imbalances and unfilled gaps for mean reversion trades
 
 Perfect for algorithmic trading, quantitative analysis, and AI-powered trading agents.
 
@@ -60,6 +61,14 @@ Perfect for algorithmic trading, quantitative analysis, and AI-powered trading a
 - 📈 Extension targets (0.5x, 1x, 1.5x, 2x)
 - 🔍 ORB squeeze detection
 - 📡 Trading bias analysis
+
+### 🔍 **Fair Value Gap (FVG) Detection**
+- 📊 3-candle pattern recognition
+- 📈 Multi-timeframe gap analysis (1m, 5m, 15m)
+- 🎯 Fill percentage and interaction tracking
+- 💹 Volume analysis during gap formation
+- 📐 Statistical fill probability
+- 🎨 Gap strength classification
 
 ### 🚀 **Enterprise Features**
 - ⚡ Async/await architecture for high performance
@@ -251,6 +260,57 @@ Analyzes Opening Range Breakout patterns for intraday and 0DTE trading strategie
 }
 ```
 
+### 🔍 `financial_fvg_analysis`
+
+Detects and analyzes Fair Value Gaps across multiple timeframes.
+
+**Request:**
+```json
+{
+  "tool": "financial_fvg_analysis",
+  "symbol": "AAPL"
+}
+```
+
+**Response:**
+```json
+{
+  "symbol": "AAPL",
+  "status": "success",
+  "current_price": 195.50,
+  "timeframe_data": {
+    "1m": {
+      "fvg_count": 3,
+      "gaps": [
+        {
+          "gap_id": "1m_2024-12-01T14:15:00Z",
+          "type": "bullish",
+          "price_levels": {
+            "gap_high": 195.80,
+            "gap_low": 195.20,
+            "gap_size": 0.60
+          },
+          "volume_data": {
+            "candle_2_volume": 125000,
+            "avg_volume_20_periods": 67000
+          },
+          "filled_percentage": 0.0,
+          "age_minutes": 15
+        }
+      ]
+    }
+  },
+  "nearest_gaps": {
+    "above_current_price": [
+      {"level": 196.10, "distance": 0.60, "timeframe": "1m"}
+    ],
+    "below_current_price": [
+      {"level": 194.75, "distance": 0.75, "timeframe": "5m"}
+    ]
+  }
+}
+```
+
 ---
 
 ## 🎯 Usage Examples
@@ -278,8 +338,14 @@ Analyzes Opening Range Breakout patterns for intraday and 0DTE trading strategie
 # Position Trading  
 # Query: "Show daily technical analysis for QQQ trend confirmation"
 
+# Mean Reversion
+# Query: "Identify partially filled FVGs in NVDA that could complete filling"
+
 # 0DTE Trading
 # Query: "Analyze SPY ORB for 0DTE entry - is breakout confirmed?"
+
+# FVG Trading
+# Query: "Find unfilled gaps in TSLA for retracement entries"
 ```
 
 ---
